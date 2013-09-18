@@ -36,6 +36,8 @@ gem 'puma'
 gem 'redis'
 gem 'tubesock'
 
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
