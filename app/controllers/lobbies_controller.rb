@@ -1,6 +1,8 @@
 class LobbiesController < ApplicationController
   include Tubesock::Hijack
 
+  before_filter :authenticate_user!
+
   def chat
     hijack do |tubesock|
 
@@ -17,7 +19,7 @@ class LobbiesController < ApplicationController
       end
 
       tubesock.onmessage do |msg|
-        Redis.new.publish "lobby", { user: 'me', time: Time.now, message: msg }.to_json
+        Redis.new.publish "lobby", { user: current_user.login, time: Time.now, message: msg }.to_json
       end
 
       tubesock.onclose do

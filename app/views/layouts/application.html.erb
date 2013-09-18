@@ -19,15 +19,36 @@
           <a class="navbar-brand" href="#">Tabletop</a>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#lobby">Lobby</a></li>
-      </ul>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#lobby">Lobby</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+        </ul>
+        <p class="navbar-text navbar-right">Signed in as  <strong><%= current_user.login %></strong></p>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
 
 <div class="container">
+
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+
   <%= yield %>
 </div>
 
