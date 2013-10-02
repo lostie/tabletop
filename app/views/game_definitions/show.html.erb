@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="nav nav-tabs nav-stacked">
+      <li><%= link_to 'Edit', edit_game_definition_path(@game_definition) %></li>
+      <li><%= link_to 'Back', game_definitions_path %></li>
+    </ul>
+  </div>
+  <div class="col-md-9" role="main">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Game Definition: <%= @game_definition.name %>
+      </div>
+      <div class="panel-footer">
+
+        <ul class="list-unstyled">
+          <li class="form-group">
+            <label class="col-lg-2 control-label">Name</label>
+            <span class="form-control-static"><%= @game_definition.name %></span>
+          </li>
+
+          <li class="form-group">
+            <label class="col-lg-2 control-label">Author</label>
+            <span class="form-control-static"><%= @game_definition.author %></span>
+          </li>
+
+          <li class="form-group">
+            <label class="col-lg-2 control-label">Version</label>
+            <span class="form-control-static"><%= @game_definition.version %></span>
+          </li>
+
+          <li class="form-group">
+            <label class="col-lg-2 control-label">Description</label>
+            <span class="form-control-static"><%= @game_definition.description %></span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

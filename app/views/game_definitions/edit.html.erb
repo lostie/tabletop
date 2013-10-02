@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="nav nav-tabs nav-stacked">
+      <li><%= link_to 'Show', game_definition_path(@game_definition) %></li>
+      <li><%= link_to 'Back', game_definitions_path %></li>
+    </ul>
+  </div>
+  <div class="col-md-9" role="main">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Edit Game Definition
+      </div>
+      <div class="panel-footer">
+        <%= form_for @game_definition, url: { action: 'create' }, :html => { :role => "form" } do |f| %>
+          <!-- <p> -->
+          <!--   <%#= render 'shared/error_messages', object: f.object %> -->
+          <!-- </p> -->
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :author %>
+            <%= f.text_field :author, :class => 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :version %>
+            <%= f.text_field :version, :maxlength => 20 , :class => 'form-control'%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, :class => "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit nil, :class => 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
